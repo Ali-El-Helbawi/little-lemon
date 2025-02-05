@@ -9,12 +9,18 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* LittleLemonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* LittleLemonTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-LittleLemon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-LittleLemon.a */; };
+		1269C320B627409186AFABE6 /* TwemojiMozilla.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = 1A1289F0DDBD4B4482199926 /* TwemojiMozilla.woff2 */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		40BCF69D1E354118A2B0737D /* Karla-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37D57D5DD28C4D4FB5A87BD6 /* Karla-Regular.ttf */; };
+		57966980894E4E5186EF5B2F /* Karla-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11D4F6A871C14810B4477925 /* Karla-Bold.ttf */; };
 		60169F8F6E70F045BBC3D29A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		744031B0E6F342049E737DC9 /* MarkaziText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37E2A427D00E4FD79D810E9E /* MarkaziText-Regular.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-LittleLemon-LittleLemonTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-LittleLemon-LittleLemonTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		F508603CC3354C06BF6C97A3 /* Karla-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5245FC7D44F4443789BF1185 /* Karla-Medium.ttf */; };
+		FD79A29862724062821A3EE6 /* KarlaExtra-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B1880CF536B4A03B586C43F /* KarlaExtra-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +37,7 @@
 		00E356EE1AD99517003FC87E /* LittleLemonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittleLemonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* LittleLemonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LittleLemonTests.m; sourceTree = "<group>"; };
+		11D4F6A871C14810B4477925 /* Karla-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Karla-Bold.ttf"; path = "../assets/fonts/Karla-Bold.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* LittleLemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleLemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = LittleLemon/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = LittleLemon/AppDelegate.mm; sourceTree = "<group>"; };
@@ -39,10 +46,15 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = LittleLemon/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = LittleLemon/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-LittleLemon-LittleLemonTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LittleLemon-LittleLemonTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A1289F0DDBD4B4482199926 /* TwemojiMozilla.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = TwemojiMozilla.woff2; path = "../node_modules/react-native-international-phone-number/lib/assets/fonts/TwemojiMozilla.woff2"; sourceTree = "<group>"; };
+		37D57D5DD28C4D4FB5A87BD6 /* Karla-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Karla-Regular.ttf"; path = "../assets/fonts/Karla-Regular.ttf"; sourceTree = "<group>"; };
+		37E2A427D00E4FD79D810E9E /* MarkaziText-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "MarkaziText-Regular.ttf"; path = "../assets/fonts/MarkaziText-Regular.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-LittleLemon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleLemon.debug.xcconfig"; path = "Target Support Files/Pods-LittleLemon/Pods-LittleLemon.debug.xcconfig"; sourceTree = "<group>"; };
+		5245FC7D44F4443789BF1185 /* Karla-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Karla-Medium.ttf"; path = "../assets/fonts/Karla-Medium.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-LittleLemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleLemon.release.xcconfig"; path = "Target Support Files/Pods-LittleLemon/Pods-LittleLemon.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-LittleLemon-LittleLemonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleLemon-LittleLemonTests.debug.xcconfig"; path = "Target Support Files/Pods-LittleLemon-LittleLemonTests/Pods-LittleLemon-LittleLemonTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-LittleLemon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LittleLemon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B1880CF536B4A03B586C43F /* KarlaExtra-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "KarlaExtra-Bold.ttf"; path = "../assets/fonts/KarlaExtra-Bold.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = LittleLemon/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-LittleLemon-LittleLemonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleLemon-LittleLemonTests.release.xcconfig"; path = "Target Support Files/Pods-LittleLemon-LittleLemonTests/Pods-LittleLemon-LittleLemonTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -125,6 +137,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				BBC2FCDFC65649769D8B44D0 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -138,6 +151,20 @@
 				00E356EE1AD99517003FC87E /* LittleLemonTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		BBC2FCDFC65649769D8B44D0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				11D4F6A871C14810B4477925 /* Karla-Bold.ttf */,
+				5245FC7D44F4443789BF1185 /* Karla-Medium.ttf */,
+				37D57D5DD28C4D4FB5A87BD6 /* Karla-Regular.ttf */,
+				7B1880CF536B4A03B586C43F /* KarlaExtra-Bold.ttf */,
+				37E2A427D00E4FD79D810E9E /* MarkaziText-Regular.ttf */,
+				1A1289F0DDBD4B4482199926 /* TwemojiMozilla.woff2 */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -247,6 +274,12 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				60169F8F6E70F045BBC3D29A /* PrivacyInfo.xcprivacy in Resources */,
+				57966980894E4E5186EF5B2F /* Karla-Bold.ttf in Resources */,
+				F508603CC3354C06BF6C97A3 /* Karla-Medium.ttf in Resources */,
+				40BCF69D1E354118A2B0737D /* Karla-Regular.ttf in Resources */,
+				FD79A29862724062821A3EE6 /* KarlaExtra-Bold.ttf in Resources */,
+				744031B0E6F342049E737DC9 /* MarkaziText-Regular.ttf in Resources */,
+				1269C320B627409186AFABE6 /* TwemojiMozilla.woff2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

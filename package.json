@@ -7,11 +7,31 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "patch-package"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^2.1.0",
+    "@react-native-masked-view/masked-view": "^0.3.2",
+    "@react-navigation/elements": "^2.2.5",
+    "@react-navigation/native": "^7.0.14",
+    "@react-navigation/native-stack": "^7.2.0",
+    "@react-navigation/stack": "^7.1.1",
+    "libphonenumber-js": "^1.11.19",
+    "patch-package": "^8.0.0",
     "react": "18.3.1",
-    "react-native": "0.76.6"
+    "react-native": "0.76.6",
+    "react-native-bouncy-checkbox": "^4.1.2",
+    "react-native-gesture-handler": "^2.22.1",
+    "react-native-image-picker": "^8.0.0",
+    "react-native-international-phone-number": "^0.9.0",
+    "react-native-pager-view": "^6.7.0",
+    "react-native-paper": "^5.13.1",
+    "react-native-reanimated": "^3.16.7",
+    "react-native-safe-area-context": "^5.1.0",
+    "react-native-screens": "^4.6.0",
+    "react-native-vector-icons": "^10.2.0",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

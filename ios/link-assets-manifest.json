@@ -1,0 +1,29 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Karla-Bold.ttf",
+      "sha1": "c245d7154645d1791c428999cabdfb4a31a30975"
+    },
+    {
+      "path": "assets/fonts/Karla-Medium.ttf",
+      "sha1": "3f3f1193b97958591746ab118961a6e2398ddcd2"
+    },
+    {
+      "path": "assets/fonts/Karla-Regular.ttf",
+      "sha1": "bf625e46311c6b71174dffced388ec963ddceacf"
+    },
+    {
+      "path": "assets/fonts/KarlaExtra-Bold.ttf",
+      "sha1": "3e6224d71339328e7236a0f4346b06b1167269a3"
+    },
+    {
+      "path": "assets/fonts/MarkaziText-Regular.ttf",
+      "sha1": "d49480aeb0aa63c31bd42fb87c96589e816b3f4a"
+    },
+    {
+      "path": "node_modules/react-native-international-phone-number/lib/assets/fonts/TwemojiMozilla.woff2",
+      "sha1": "3a2bb214a3ba69716cbc6a3177480aefb6b867e4"
+    }
+  ]
+}
