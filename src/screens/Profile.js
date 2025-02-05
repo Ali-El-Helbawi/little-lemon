@@ -7,7 +7,7 @@ import {
   Pressable,
   ScrollView,
   StyleSheet,
-  Switch,
+  Animated,
   useWindowDimensions,
 } from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
@@ -57,6 +57,10 @@ const Profile = () => {
       newsletter: false,
     },
   );
+  // Animated Success Message State
+  const [showSuccess, setShowSuccess] = useState(false);
+  const fadeAnim = useRef(new Animated.Value(0)).current; // Initial opacity: 0
+  const slideAnim = useRef(new Animated.Value(-30)).current; // Start above the screen
   useEffect(() => {
     if (user) {
       setFirstName(user?.firstName ?? '');
@@ -91,6 +95,36 @@ const Profile = () => {
     console.log(newUser);
 
     updateUser(newUser);
+    // Show success message
+    setShowSuccess(true);
+    Animated.parallel([
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 500,
+        useNativeDriver: true,
+      }),
+      Animated.timing(slideAnim, {
+        toValue: 0,
+        duration: 500,
+        useNativeDriver: true,
+      }),
+    ]).start();
+
+    // Hide after 3 seconds
+    setTimeout(() => {
+      Animated.parallel([
+        Animated.timing(fadeAnim, {
+          toValue: 0,
+          duration: 500,
+          useNativeDriver: true,
+        }),
+        Animated.timing(slideAnim, {
+          toValue: -30,
+          duration: 500,
+          useNativeDriver: true,
+        }),
+      ]).start(() => setShowSuccess(false));
+    }, 3000);
   };
 
   const pickImage = () => {
@@ -124,6 +158,18 @@ const Profile = () => {
     <ScrollView
       style={styles.container}
       contentContainerStyle={{paddingBottom: 20}}>
+      {/* Success Message Animation */}
+      {showSuccess && (
+        <Animated.View
+          style={[
+            styles.successMessage,
+            {opacity: fadeAnim, transform: [{translateY: slideAnim}]},
+          ]}>
+          <Text style={styles.successText}>
+            Profile updated successfully! ✅
+          </Text>
+        </Animated.View>
+      )}
       <View style={styles.header}>
         <Pressable
           onPress={() => {
@@ -394,6 +440,22 @@ const styles = StyleSheet.create({
   },
   descriptionText: {
     fontSize: 14,
+    fontWeight: 'bold',
+  },
+  successMessage: {
+    position: 'absolute',
+    bottom: 200,
+    left: 20,
+    right: 20,
+    backgroundColor: 'green',
+    padding: 10,
+    borderRadius: 5,
+    alignItems: 'center',
+    zIndex: 1,
+    opacity: 0.7,
+  },
+  successText: {
+    color: 'white',
     fontWeight: 'bold',
   },
 });
