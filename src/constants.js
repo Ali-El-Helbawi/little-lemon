@@ -8,7 +8,7 @@ export const TextStyles = StyleSheet.create({
   paragraphText: {
     fontFamily: 'Karla-Regular',
     fontSize: 16,
-    lineHeight: 1.5,
+    // lineHeight: 1.5,
   },
   cardTitle: {
     fontFamily: 'Karla-Bold',
