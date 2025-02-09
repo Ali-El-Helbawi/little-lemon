@@ -26,6 +26,7 @@ const Profile = props => {
   const {width, height} = useWindowDimensions();
   const updateUser = useUserStore(state => state.updateUser);
   const user = useUserStore(state => state.user);
+  const logOut = useUserStore(state => state.logOut);
   const [isLoading, setIsLoading] = useState(true);
 
   const [firstName, setFirstName] = useState(user?.firstName ?? '');
@@ -51,8 +52,8 @@ const Profile = props => {
   }
   const [notifications, setNotifications] = useState(
     user?.notifications ?? {
-      orderStatus: true,
-      passwordChanges: true,
+      orderStatus: false,
+      passwordChanges: false,
       specialOffers: false,
       newsletter: false,
     },
@@ -61,6 +62,25 @@ const Profile = props => {
   const [showSuccess, setShowSuccess] = useState(false);
   const fadeAnim = useRef(new Animated.Value(0)).current; // Initial opacity: 0
   const slideAnim = useRef(new Animated.Value(-30)).current; // Start above the screen
+  const discard = () => {
+    if (user) {
+      setFirstName(user?.firstName ?? '');
+      setLastName(user?.lastName ?? '');
+      setEmail(user?.email ?? '');
+      setPhone(user?.phone ?? '');
+      setImageUri(user?.avatar ?? null);
+      setSelectedCountry(user?.selectedCountry ?? null);
+      setIsValidPhone(user?.isValidPhone || false);
+      setNotifications(
+        user?.notifications ?? {
+          orderStatus: false,
+          passwordChanges: false,
+          specialOffers: false,
+          newsletter: false,
+        },
+      );
+    }
+  };
   useEffect(() => {
     if (user) {
       setFirstName(user?.firstName ?? '');
@@ -72,8 +92,8 @@ const Profile = props => {
       setIsValidPhone(user?.isValidPhone || false);
       setNotifications(
         user?.notifications ?? {
-          orderStatus: true,
-          passwordChanges: true,
+          orderStatus: false,
+          passwordChanges: false,
           specialOffers: false,
           newsletter: false,
         },
@@ -297,15 +317,19 @@ const Profile = props => {
         </View>
       ))}
 
-      <Pressable style={styles.logoutButton}>
+      <Pressable
+        style={styles.logoutButton}
+        onPress={() => {
+          logOut();
+        }}>
         <Text style={styles.logoutText}>Log out</Text>
       </Pressable>
 
       <View style={styles.actionButtons}>
-        <Pressable style={styles.discardButton}>
+        <Pressable style={styles.discardButton} onPress={() => discard()}>
           <Text style={styles.buttonText}>Discard changes</Text>
         </Pressable>
-        <Pressable style={styles.saveButton} onPress={saveUser}>
+        <Pressable style={styles.saveButton} onPress={() => saveUser()}>
           <Text style={styles.buttonText}>Save changes</Text>
         </Pressable>
       </View>
