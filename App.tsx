@@ -32,7 +32,6 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import Profile from './src/screens/Profile';
 import {useUserStore} from './zustand/user';
 import Home from './src/screens/Home';
-import {useRehydrateStore} from './zustand/rehydrate';
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;

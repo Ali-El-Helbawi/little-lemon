@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -15,39 +15,65 @@ import {Avatar} from 'react-native-paper';
 import {useRestaurantStore} from '../../zustand/restaurant';
 import {Colors, TextStyles} from '../constants';
 import {useUserStore} from '../../zustand/user';
-import {useRehydrateStore} from '../../zustand/rehydrate';
+import {debounce} from 'lodash';
 
+//   return (...args) => {
+//     clearTimeout(timeoutId);
+
+//     timeoutId = setTimeout(() => {
+//       func.apply(this, args);
+//     }, delay);
+//   };
+// };
 const Home = props => {
   const {menuItems, getMenuItems} = useRestaurantStore();
   const user = useUserStore(state => state.user);
   const categories = useRestaurantStore(state => state.categories);
-  // const getMenuItems = useRestaurantStore(state => state.getMenuItems);
-  // const menuItems = useRestaurantStore(state => state.menuItems);
-  // useEffect(() => {
-  //   getMenuItems();
-  // }, []);
+
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-
+  const [filteredMenu, setFilteredMenu] = useState(menuItems);
   // Toggle category selection (Multi-selection enabled)
   const toggleCategory = category => {
-    setSelectedCategories(prev =>
-      prev.includes(category)
-        ? prev.filter(c => c !== category)
-        : [...prev, category],
-    );
+    const old = selectedCategories.slice();
+    const newCat = old.includes(category)
+      ? old.filter(c => c !== category)
+      : [...old, category];
+    filterMenuCategories(newCat);
+    setSelectedCategories(newCat);
   };
 
+  const filterMenuText = text => {
+    const _filteredMenu = menuItems.filter(item => {
+      const matchesCategory =
+        selectedCategories.length === 0 ||
+        selectedCategories.includes(item.category);
+      const matchesSearch = item.name
+        .toLowerCase()
+        .includes(text.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+    setFilteredMenu(_filteredMenu);
+  };
+  const filterMenuCategories = _selectedCategories => {
+    const _filteredMenu = menuItems.filter(item => {
+      const matchesCategory =
+        _selectedCategories.length === 0 ||
+        _selectedCategories.includes(item.category);
+      const matchesSearch = item.name
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+    setFilteredMenu(_filteredMenu);
+  };
+  const debouncedSearch = debounce(filterMenuText, 200);
+  const handleSearch = text => {
+    setSearchQuery(text);
+    debouncedSearch(text);
+  };
   // Filter menu based on selected categories and search query
-  const filteredMenu = menuItems.filter(item => {
-    const matchesCategory =
-      selectedCategories.length === 0 ||
-      selectedCategories.includes(item.category);
-    const matchesSearch = item.name
-      .toLowerCase()
-      .includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+
   const RenderItem = ({item, index}) => {
     return (
       <View style={styles.menuItem}>
@@ -125,18 +151,17 @@ const Home = props => {
       {/* Search Button */}
       <TouchableOpacity style={styles.searchButton}>
         <Text style={styles.searchText}>🔍</Text>
-      </TouchableOpacity>
-      {/* Search Input */}
-      <View style={styles.searchContainer}>
         <TextInput
           style={styles.searchInput}
           placeholder="Search for a dish..."
           placeholderTextColor="#999"
           value={searchQuery}
-          onChangeText={setSearchQuery}
+          onChangeText={handleSearch}
           autoCorrect={false}
         />
-      </View>
+      </TouchableOpacity>
+      {/* Search Input */}
+
       {/* Category Filters using FlatList */}
       <Text style={styles.sectionTitle}>ORDER FOR DELIVERY!</Text>
       <FlatList
@@ -194,13 +219,6 @@ const styles = StyleSheet.create({
   subtitle: {fontSize: 18, fontWeight: '600', color: '#fff'},
   description: {fontSize: 14, color: '#fff', marginTop: 8},
 
-  searchButton: {
-    alignSelf: 'center',
-    backgroundColor: '#EAEAEA',
-    padding: 10,
-    borderRadius: 25,
-    marginTop: 10,
-  },
   searchText: {fontSize: 18},
   sectionTitle: {fontSize: 16, fontWeight: 'bold', marginTop: 20},
   categoryList: {flexDirection: 'row', paddingVertical: 10},
@@ -244,7 +262,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  searchInput: {flex: 1, height: 40, fontSize: 16, color: '#333'},
+  searchButton: {
+    //alignSelf: 'center',
+    backgroundColor: '#EAEAEA',
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderRadius: 10,
+    marginTop: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  searchInput: {height: 40, fontSize: 16, color: '#333', paddingHorizontal: 10},
   restaurantImage: {width: 100, height: 130, borderRadius: 10}, // Ensures proper sizing
 });
 
