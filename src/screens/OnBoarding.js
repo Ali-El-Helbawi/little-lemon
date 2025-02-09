@@ -24,7 +24,6 @@ const OnBoarding = props => {
   const [firstName, setFirstName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [valid, setValid] = React.useState(false);
-  const completeOnboarding = useUserStore(state => state.completeOnboarding);
   const logIn = useUserStore(state => state.logIn);
 
   const checkValidation = props => {
@@ -45,9 +44,6 @@ const OnBoarding = props => {
       return;
     }
     logIn({firstName, email});
-    completeOnboarding();
-
-    // props.navigation.navigate('Profile', {firstName, email});
   };
   return (
     <KeyboardAvoidingView

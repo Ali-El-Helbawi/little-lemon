@@ -22,7 +22,7 @@ import {useNavigation} from '@react-navigation/native';
 import AnimatedIcon from '../components/AnimatedIcon';
 import {primary1, primary2, secondary1, TextStyles} from '../constants';
 
-const Profile = () => {
+const Profile = props => {
   const {width, height} = useWindowDimensions();
   const updateUser = useUserStore(state => state.updateUser);
   const user = useUserStore(state => state.user);
@@ -142,7 +142,6 @@ const Profile = () => {
   const toggleNotification = (key, isChecked) => {
     setNotifications(prev => ({...prev, [key]: isChecked}));
   };
-  const navigation = useNavigation();
   const DescriptionText = ({text = ''}) => {
     return <Text style={styles.descriptionText}>{text}</Text>;
   };
@@ -173,7 +172,7 @@ const Profile = () => {
       <View style={styles.header}>
         <Pressable
           onPress={() => {
-            // navigation.goBack();
+            props.navigation.goBack();
           }}
           style={styles.backButton}>
           <Ionicons name="arrow-back" size={24} color="white" />

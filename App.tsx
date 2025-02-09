@@ -10,6 +10,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import React, {useEffect} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  ActivityIndicator,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -30,6 +31,8 @@ import OnBoarding from './src/screens/OnBoarding';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import Profile from './src/screens/Profile';
 import {useUserStore} from './zustand/user';
+import Home from './src/screens/Home';
+import {useRehydrateStore} from './zustand/rehydrate';
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -46,20 +49,21 @@ const OnBoardingNavigator = createStackNavigator();
 function OnBoardingStack() {
   const user = useUserStore(state => state.user);
   const isLoggedIn = useUserStore(state => state.isLoggedIn);
-  const isOnboardingCompleted = useUserStore(
-    state => state.isOnboardingCompleted,
-  );
+
   const logIn = useUserStore(state => state.logIn);
-  const resetOnboarding = useUserStore(state => state.resetOnboarding);
-  useEffect(() => {
-    //resetOnboarding();
-  }, []);
+
   return (
-    <OnBoardingNavigator.Navigator>
-      {isOnboardingCompleted ? (
+    <OnBoardingNavigator.Navigator
+      initialRouteName={isLoggedIn ? 'HomeScreen' : 'OnBoarding'}>
+      {isLoggedIn ? (
         <>
           <OnBoardingNavigator.Screen
-            name="Profile"
+            name="HomeScreen"
+            component={Home}
+            options={{headerShown: false}}
+          />
+          <OnBoardingNavigator.Screen
+            name="ProfileScreen"
             component={Profile}
             options={{headerShown: false}}
           />
